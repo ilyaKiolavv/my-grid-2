@@ -20,12 +20,16 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  /* Мини-задание 2: третья колонка 200px — пустая область (".") в сетке */
+  grid-template-columns: 200px 1fr 200px;
   grid-template-rows: auto 1fr auto;
+  /* Мини-задание 1: main и sidebar поменяны местами относительно исходной
+     схемы ("sidebar main" → "main sidebar") — JSX не трогали, поменялась
+     только текстовая карта сетки */
   grid-template-areas:
-    "header header"
-    "sidebar main"
-    "footer footer";
+    "header header header"
+    "main sidebar ."
+    "footer footer footer";
   gap: var(--gap);
   min-height: 80vh;
   padding: var(--gap);
@@ -57,7 +61,8 @@ body {
   background: rgba(0, 0, 0, 0.12);
 }
 
-/* Адаптив: на мобильных сайдбар уходит под контент */
+/* Мини-задание 4: адаптив — на мобильных сетка схлопывается в одну колонку,
+   пустая область-«дырка» исчезает (на узком экране ей просто нет места) */
 @media (max-width: 768px) {
   .layout {
     grid-template-columns: 1fr;
